@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+
+@font-face {
+    font-family: 'digitalClock' ;
+    src: url('DjbGetDigital-6G5g.ttf') format('truetype');
+ }
+
+
+
+header{
+    height: 120px;
+    font-family: 'Acme', sans-serif;    font-weight: bold;
+    font-size: 50px;
+    line-height: 40px;
+    color: silver;
+    text-align: left;
+    padding: 10px;
+}
+
+h1 {
+    font-family: 'Acme', sans-serif;
+}
+
+body{
+    background-color: black;
+}
+
+#Timer {
+    font-family: 'digitalClock', sans-serif;
+    font-size: 40px;
+}
+
+#startButton {
+    font-size: 30px;
+}
+
+#questionNumber{
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    margin: 20px 0px 0px 0px;
+    padding: 10px;
+}
+
+#scoreBoard{
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    margin: 20px 0px 0px 0px;
+    padding: 10px;
+}
+
+#questionArea{
+    font-family: 'Acme', sans-serif;
+    font-size: 35px;
+    margin: 0px 0px 20px 0px;
+    padding: 10px;
+}
+
+button {
+    background-color: lightskyblue;
+    border-width: 0px;
+}
+
+.Ans{
+    font-family: 'Acme', sans-serif;
+    position: relative;
+    padding-left: auto;
+    padding-right: auto;
+    font-size: 25px;
+}
+
+footer{
+    bottom: 0px;
+    position: fixed;
+    height: 20px;
+    width: 100%;
+    background-color: silver;
+    text-align: center;
+    font-size: 10px;
+    color: black;
+}
+
+#ABCD {
+    position: relative;
+    left: 70px;
+    font-size: 30px;
+}
+
+#resultMessage {
+    position: relative;
+    top: 50px;
+    font-size: 30px;
+}
+
+#pressToRestart {
+    font-family: 'Acme', sans-serif;
+    position: relative;
+    top: 50px;
+    font-size: 30px; 
+    display: none;  
+}
+
+@media screen and (max-width: 979px){
+    header { font-size: 40px; }
+    #scoreBoardMsg { font-size: 30px;}
+    #scoreBoard { font-size: 25px;
+        line-height: 30px; }
+    #gamesWon { font-size: 25px; }
+    #gamesLost { font-size: 25px; }
+    
+}
+
+
+@media screen and (max-width: 767px){
+    header { font-size: 30px; }
+    #subHeading { font-size: 15px; }
+    #scoreBoardMsg { font-size: 20px;}
+    #scoreBoard { font-size: 15px;
+        line-height: 20px; }
+    #gamesWon { font-size: 12px; }
+    #gamesLost { font-size: 12px; }
+    }     
+    
+@media screen and (max-width: 639px){
+    header { font-size: 20px; }
+    #scoreBoardMsg { font-size: 20px;}
+    #scoreBoard { font-size: 15px;
+                    line-height: 15px; }
+    #gamesWon { font-size: 12px; }
+    #gamesLost { font-size: 12px; }
+}

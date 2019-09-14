@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>NJIB GifTastic</title>
+
+    <!-- Link html to CSS reset -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    ​
+    <!-- Link html to the Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Link html to the CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="col-lg-4 col-sm-4">
+                <a class="navbar-brand" href="#">GifTastic!</a>
+            </div>
+            <div class="col-lg-2 col-sm-0"></div>
+            <div class="col-lg-6 col-sm-8">
+                <form class="form-inline my-2 my-lg-0">
+                    <input id="searchGIF" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+<br/>
+    <div class="container">
+        <div class="card card-default">
+            <div class="card-body" id="recent-member">
+                <div id="gifOutput" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+<br/>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- Script -->
+    <script>
+        // Capture Button Click
+        $('#searchBtn').on("click", function (event) {
+            // prevent form from trying to submit/refresh the page
+            event.preventDefault();
+
+            // Capture User Inputs and store them into variables
+            var searchCriteria = $('#searchGIF').val().trim();
+            console.log(searchCriteria);
+
+            // Output all of the new information into the relevant HTML sections
+            $("#gifOutput").html(searchCriteria);
+        });
+
+    </script>
+
+</body>
+
+</html>
