@@ -30,34 +30,10 @@ body{
     font-size: 40px;
 }
 
-#startButton {
-    font-size: 30px;
-}
-
-#questionNumber{
-    font-family: 'Acme', sans-serif;
-    font-size: 20px;
-    margin: 20px 0px 0px 0px;
-    padding: 10px;
-}
-
-#scoreBoard{
-    font-family: 'Acme', sans-serif;
-    font-size: 20px;
-    margin: 20px 0px 0px 0px;
-    padding: 10px;
-}
-
-#questionArea{
-    font-family: 'Acme', sans-serif;
-    font-size: 35px;
-    margin: 0px 0px 20px 0px;
-    padding: 10px;
-}
-
 button {
-    background-color: lightskyblue;
+    background-color: orange;
     border-width: 0px;
+    margin: 10px;
 }
 
 .Ans{

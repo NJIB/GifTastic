@@ -26,11 +26,11 @@
 
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="col-lg-4 col-sm-4">
+            <div class="col-lg-4 col-sm-6">
                 <a class="navbar-brand" href="#">GifTastic!</a>
             </div>
             <div class="col-lg-2 col-sm-0"></div>
-            <div class="col-lg-6 col-sm-8">
+            <div class="col-lg-5 col-sm-6">
                 <form class="form-inline my-2 my-lg-0">
                     <input id="searchGIF" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -41,32 +41,118 @@
 <br/>
     <div class="container">
         <div class="card card-default">
-            <div class="card-body" id="recent-member">
-                <div id="gifOutput" class="row">
-
+            <div class="card-body" id="buttons-view">
                 </div>
             </div>
         </div>
     </div>
 <br/>
+<div class="container">
+        <div id="gifOutput" class="row">
+    </div>
+
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
 
     <!-- Script -->
     <script>
-        // Capture Button Click
-        $('#searchBtn').on("click", function (event) {
-            // prevent form from trying to submit/refresh the page
-            event.preventDefault();
 
-            // Capture User Inputs and store them into variables
-            var searchCriteria = $('#searchGIF').val().trim();
-            console.log(searchCriteria);
+      // Initial array
+      var gifCategs = [];
 
-            // Output all of the new information into the relevant HTML sections
-            $("#gifOutput").html(searchCriteria);
+      // Function for displaying GIFs
+      function renderButtons() {
+
+        // Deleting the buttons prior to adding new buttons (this is necessary otherwise we will have repeat buttons)
+        $("#buttons-view").empty();
+
+        // Looping through the array of GIF searches
+        for (var i = 0; i < gifCategs.length; i++) {
+
+          // Then dynamicaly generate buttons for each GIF search in the array
+          // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+          var newBtn = $("<button>");
+          // Adding a class
+          newBtn.addClass("newGIF");
+          // Adding a data-attribute with a value of the gif search at index i
+          newBtn.attr("data-name", gifCategs[i]);
+          // Providing the button's text with a value of the gif search at index i
+          newBtn.text(gifCategs[i]);
+          // Adding the button to the HTML
+          $("#buttons-view").append(newBtn);
+        }
+      }
+
+      // This function handles events where one button is clicked
+      $("#searchBtn").on("click", function(event) {
+
+        // event.preventDefault() prevents the form from trying to submit itself.
+        // We're using a form so that the user can hit enter instead of clicking the button if they want
+        event.preventDefault();
+
+        // This line will grab the text from the input box
+        var searchString = $("#searchGIF").val().trim();
+
+        // The gif Search criteria from the textbox is then added to our array
+        gifCategs.push(searchString);
+
+        // calling renderButtons which handles the processing of our GIF array
+        renderButtons();
+      });
+
+      // Calling the renderButtons function at least once to display the initial list of GIFs
+      renderButtons();
+
+
+      $(document.body).on("click", ".newGIF", function() {
+      // Grabbing and storing the data-name property value from the button
+      var gifData = $(this).attr("data-name");
+      console.log("gifData: " + gifData)
+
+      // Constructing a queryURL using the animal name
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        gifData + "&api_key=9P0PILnLoHRVcWYE21GVF0EfgVkXXRr0&limit=10";
+
+      // Performing an AJAX request with the queryURL
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        // After data comes back from the request
+        .then(function(response) {
+          console.log(queryURL);
+
+          console.log(response);
+          // storing the data from the AJAX request in the results variable
+          var results = response.data;
+
+          // Looping through each result item
+          for (var i = 0; i < results.length; i++) {
+
+            // Creating and storing a div tag
+            var gifDiv = $("<div>");
+
+            // Creating a paragraph tag with the result item's rating
+            var gifP = $("<p>").text("Rating: " + results[i].rating);
+
+            // Creating and storing an image tag
+            var gifImg = $("<img>");
+            // Setting the src attribute of the image to a property pulled off the result item
+            gifImg.attr("src", results[i].images.fixed_height.url);
+
+            // Appending the paragraph and image tag to the gifDiv
+            gifDiv.append(gifP);
+            gifDiv.append(gifImg);
+
+            // Prependng the gifDiv to the HTML page in the "#gifOutput" div
+            $("#gifOutput").prepend(gifDiv);
+          }
         });
+    });
+
+
 
     </script>
 
