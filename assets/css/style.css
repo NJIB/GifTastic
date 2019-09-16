@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
-
-@font-face {
-    font-family: 'digitalClock' ;
-    src: url('DjbGetDigital-6G5g.ttf') format('truetype');
- }
-
-
+@import url('https://fonts.googleapis.com/css?family=Aclonica|Aldrich|Anton|Barriecito|Carter+One|Caveat|Gruppo|Knewave|Lexend+Zetta|Love+Ya+Like+A+Sister|Permanent+Marker|Rock+Salt|Saira+Stencil+One|Special+Elite&display=swap');
 
 header{
     height: 120px;
@@ -17,12 +10,19 @@ header{
     padding: 10px;
 }
 
+.navbar {
+    /* font-family: 'Permanent Marker', cursive; */
+    font-family: 'Gruppo';
+}
+
 h1 {
-    font-family: 'Acme', sans-serif;
+    /* font-family: 'Monoton', cursive; */
+    font-family: 'Carter One', cursive;
 }
 
 body{
     background-color: black;
+    /* font-family: 'Carter One', cursive; */
 }
 
 #Timer {
@@ -36,14 +36,6 @@ button {
     margin: 10px;
 }
 
-.Ans{
-    font-family: 'Acme', sans-serif;
-    position: relative;
-    padding-left: auto;
-    padding-right: auto;
-    font-size: 25px;
-}
-
 footer{
     bottom: 0px;
     position: fixed;
@@ -53,18 +45,6 @@ footer{
     text-align: center;
     font-size: 10px;
     color: black;
-}
-
-#ABCD {
-    position: relative;
-    left: 70px;
-    font-size: 30px;
-}
-
-#resultMessage {
-    position: relative;
-    top: 50px;
-    font-size: 30px;
 }
 
 #pressToRestart {
@@ -84,7 +64,6 @@ footer{
     #gamesLost { font-size: 25px; }
     
 }
-
 
 @media screen and (max-width: 767px){
     header { font-size: 30px; }
