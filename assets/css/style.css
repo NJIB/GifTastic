@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Aclonica|Aldrich|Anton|Barriecito|Carter+One|Caveat|Gruppo|Knewave|Lexend+Zetta|Love+Ya+Like+A+Sister|Permanent+Marker|Rock+Salt|Saira+Stencil+One|Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Aldrich|Carter+One&display=swap');
 
 header{
     height: 120px;
@@ -11,8 +14,7 @@ header{
 }
 
 .navbar {
-    /* font-family: 'Permanent Marker', cursive; */
-    font-family: 'Gruppo';
+    font-family: 'Permanent Marker', cursive;
 }
 
 h1 {
@@ -20,20 +22,32 @@ h1 {
     font-family: 'Carter One', cursive;
 }
 
-body{
-    background-color: black;
-    /* font-family: 'Carter One', cursive; */
+p {
+    color: darkslategray;
+    margin: 10px;
 }
 
-#Timer {
-    font-family: 'digitalClock', sans-serif;
-    font-size: 40px;
+body{
+    background-image: url("../images/cloth-alike.png");
+    background-repeat:repeat;
+}
+
+img {
+    margin: 10px;
 }
 
 button {
     background-color: orange;
     border-width: 0px;
     margin: 10px;
+}
+
+.newGIF {
+    font-family: 'Carter One', cursive;
+}
+
+.favGIF {
+    font-family: 'Carter One', cursive;
 }
 
 footer{
