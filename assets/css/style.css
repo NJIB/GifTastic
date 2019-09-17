@@ -50,6 +50,10 @@ button {
     font-family: 'Carter One', cursive;
 }
 
+#favOutput {
+    background-color: orange;
+}
+
 footer{
     bottom: 0px;
     position: fixed;

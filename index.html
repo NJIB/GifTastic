@@ -37,7 +37,7 @@
           <input id="searchGIF" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           <button id="clearBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Clear</button>
-          <button id="playFavs" class="btn btn-success my-2 my-sm-0" type="submit">Play Favorites</button>
+          <button id="playFavs" class="btn btn-success my-2 my-sm-0">Play Favorites</button>
         </form>
       </div>
     </nav>
@@ -49,10 +49,12 @@
       </div>
     </div>
   </div>
-  </div>
+  <!-- </div> -->
   <br />
   <div class="container">
-    <div id="favOutput" class="row"></div>
+    <div class="card card-default">
+      <div id="favOutput" class="row">Your favorite GIFs:</div>
+    </div>
   </div>
   <br />
   <div class="container">
@@ -134,7 +136,6 @@
       })
         // After data comes back from the request
         .then(function (response) {
-          console.log(queryURL);
 
           console.log(response);
           // storing the data from the AJAX request in the results variable
@@ -164,8 +165,7 @@
 
             //Adding a Bootstrap class for formatting only
             favBtn.addClass("btn btn-success");
-            favBtn.attr("data-link", gifImg.attr("src", results[i].images.fixed_height.url));
-            console.log(favBtn.attr("data-link"));
+            favBtn.attr("data-link", results[i].images.fixed_height.url);
             favBtn.text("Save as favorite");
 
             // Appending the paragraph and image tag to the gifDiv
@@ -200,19 +200,51 @@
     $(document.body).on("click", ".favGIF", function () {
       var gifLink = $(this).attr("data-link");
       console.log("gifLink: " + gifLink);
-      // if (favGIFs.indexOf(gifLink)){
-      //   console.log("Duplicate!");
-      // } else {
       favGIFs.push(gifLink);
       console.log("favGIFs: " + favGIFs);
       favBtn.attr("data-idx", favGIFs.length + 1);
       console.log("# of favGIFs: " + favGIFs.length);
-    // }
-    gifLink = "";
+      $(this).attr("data-Clicked", true);
     });
 
+    // Play favorites
     $(document.body).on("click", "#playFavs", function () {
       console.log("Play Favorites clicked!")
+
+      for (j = 0; j < favGIFs.length; j++) {
+
+        $("#favOutput").prepend("TESTING TESTING TESTING");
+
+//         var favDiv = $("<div>");
+
+//         // Creating a paragraph tag with the result item's rating
+//         var gifP = $("<p>").text("Title: " + results[i].title);
+//         gifP.append("<br/>" + "Rating: " + results[i].rating);
+//         gifP.append("<br/>" + "Import date: " + results[i].import_datetime);
+
+//         // Creating and storing an image tag
+//         var gifImg = $("<img>");
+
+//         // Give gifImg the gif class, so it can be identified when clicked
+//         gifImg.addClass("gif");
+//         gifImg.attr("src", favGIFs[i]);
+
+//         // Appending the paragraph and image tag to the gifDiv
+//         favDiv.append("Favorite GIF #" + i);
+//         favDiv.append("<br/>");
+//         favDiv.append(gifP);
+//         favDiv.append("<br/>");
+//         favDiv.append(gifImg);
+//         favDiv.append("<br/>");
+//         favDiv.append(favBtn);
+// debugger
+//         // Prependng the gifDiv to the HTML page in the "#gifOutput" div
+//         $("#favOutput").prepend("TESTING TESTING TESTING");
+
+//         $("#favOutput").prepend(favDiv);
+      }
+      debugger
+
     });
 
 
