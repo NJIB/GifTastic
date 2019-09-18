@@ -48,6 +48,7 @@ button {
 
 .favGIF {
     font-family: 'Carter One', cursive;
+    margin: 20px;
 }
 
 #favOutput {
