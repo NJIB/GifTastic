@@ -51,8 +51,23 @@ button {
 }
 
 #favOutput {
-    background-color: orange;
+    background-color: lightgrey;
+    margin: 20px;
+    padding: 20px;
 }
+
+#favsContainer {
+    font-family: 'Carter One', cursive;
+    padding: 20px;
+    display: none;
+}
+
+#buttonsContainer {
+    font-family: 'Carter One', cursive;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
 
 footer{
     bottom: 0px;
@@ -71,33 +86,4 @@ footer{
     top: 50px;
     font-size: 30px; 
     display: none;  
-}
-
-@media screen and (max-width: 979px){
-    header { font-size: 40px; }
-    #scoreBoardMsg { font-size: 30px;}
-    #scoreBoard { font-size: 25px;
-        line-height: 30px; }
-    #gamesWon { font-size: 25px; }
-    #gamesLost { font-size: 25px; }
-    
-}
-
-@media screen and (max-width: 767px){
-    header { font-size: 30px; }
-    #subHeading { font-size: 15px; }
-    #scoreBoardMsg { font-size: 20px;}
-    #scoreBoard { font-size: 15px;
-        line-height: 20px; }
-    #gamesWon { font-size: 12px; }
-    #gamesLost { font-size: 12px; }
-    }     
-    
-@media screen and (max-width: 639px){
-    header { font-size: 20px; }
-    #scoreBoardMsg { font-size: 20px;}
-    #scoreBoard { font-size: 15px;
-                    line-height: 15px; }
-    #gamesWon { font-size: 12px; }
-    #gamesLost { font-size: 12px; }
 }
