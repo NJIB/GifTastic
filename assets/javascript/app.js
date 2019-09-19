@@ -1,6 +1,6 @@
 var gifImg; // Stores gif for rendering to div
-var favGIFs = [{ url: "", title: "", rating: "", importDT: "" }];  //Array to hold favorite GIFs
-
+var favGIFs = [{ url: "", title: "", rating: "", importDT: "", slug: "" }];  //Array to hold favorite GIFs
+var favsLog = [];
 var k = 0;  // To store favGIFs array index
 
 // Initial array
@@ -86,6 +86,11 @@ $(document.body).on("click", ".newGIF", function () {
 // Writing the data selected to the DOM
 function populateDiv(results, destDiv) {
 
+    // Clear favorites div before populating (to ensure no duplicates are displayed)
+    if (destDiv === "favOutput") {
+        $("#favOutput").html("");
+    }
+
     // Looping through each result item
     for (var i = 0; i < results.length; i++) {
 
@@ -115,6 +120,7 @@ function populateDiv(results, destDiv) {
         favBtn.attr("data-title", results[i].title);
         favBtn.attr("data-rating", results[i].rating);
         favBtn.attr("data-import_datetime", results[i].import_datetime);
+        favBtn.attr("data-slug", results[i].slug);
 
         favBtn.text("Save as favorite");
 
@@ -158,32 +164,37 @@ $(document.body).on("click", ".gif", function () {
 
 // Save favorites
 $(document.body).on("click", ".favGIF", function () {
-    // favBtn.attr("data-idx", favGIFs.length + 1);
-    $(this).attr("data-Clicked", true);
 
+    // Display favorites pane only when a favorite has been saved
     document.getElementById("favsContainer").style.display = "flex";
 
+    // Read attributes from 'Save to favorites' button
     var gifLink = $(this).attr("data-link");
     var gifTitle = $(this).attr("data-title");
     var gifRating = $(this).attr("data-rating");
     var gifImportDT = $(this).attr("data-import_datetime");
+    var gifSlug = $(this).attr("data-slug");
 
-    //Constructing object, so that it can leverage the standard populateDiv function
-    favGIFs[k] = {
-        images: { fixed_height: { url: gifLink } },
-        title: gifTitle,
-        rating: gifRating,
-        importDT: gifImportDT
-    };
+    // Only add to favGIFs if not already added
+    if (favsLog.includes(gifSlug)) { } else {
+        favGIFs[k] = {
+            images: { fixed_height: { url: gifLink } },
+            title: gifTitle,
+            rating: gifRating,
+            importDT: gifImportDT
+        }
 
-    // Increment counter
-    k++;
+        // Increment counter
+        k++;
+
+        favsLog.push(gifSlug);
+        console.log("favsLog: " + favsLog);
+    }
 });
 
 // Play favorites
 $(document.body).on("click", "#playFavs", function () {
     favDestDiv = "favOutput";
-    console.log(favDestDiv);
 
     populateDiv(favGIFs, favDestDiv);
 
