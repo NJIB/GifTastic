@@ -1,3 +1,6 @@
+GifTastic
+https://njib.github.io/GifTastic/
+
 This application demonstrates how APIs can be leveraged to import content into a webpage
 
 The user is invited to enter search criteria into the search bar
